@@ -1,11 +1,12 @@
 pkgname=$(basename $(pwd))
 pkgver=0.8
-pkgrel=1
+pkgrel=2
 pkgdesc='diet4j Java module management'
 arch=('any')
 url="http://jdiet.org/"
 license=('Apache')
-makedepends=('maven')
+makedepends=('maven' 'jdk8-openjdk' )
+depends=('java-runtime=8')
 source=("git+https://github.com/diet4j/diet4j.git#tag=diet4j-${pkgver}")
 sha512sums=('SKIP')
 
