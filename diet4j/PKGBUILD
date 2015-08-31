@@ -12,7 +12,7 @@ sha512sums=('SKIP')
 
 build() {
     cd ${pkgname}
-    mvn package
+    mvn package install -DskipTests ${MVN_OPTS}
 }
 
 package() {
