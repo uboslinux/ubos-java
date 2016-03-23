@@ -1,6 +1,6 @@
 pkgname=$(basename $(pwd))
-pkgver=0.11
-pkgrel=3
+pkgver=0.12
+pkgrel=1
 pkgdesc='diet4j Java module management'
 arch=('any')
 url="http://jdiet.org/"
@@ -17,12 +17,19 @@ build() {
 }
 
 package() {
+    # Jars
     installOne 'diet4j-cmdline'
     installOne 'diet4j-core'
     installOne 'diet4j-inclasspath'
     installOne 'diet4j-tomcat'
     installOne 'diet4j-status'
+
+    # Command-line
     install -m755 -D ${srcdir}/diet4j/diet4j-cmdline/bin/diet4j ${pkgdir}/usr/bin/diet4j
+
+    # Tomcat
+    mkdir -p ${pkgdir}/usr/share/java/tomcat8
+    ln -s /usr/lib/java/org/diet4j/diet4j-tomcat/${pkgver}/diet4j-tomcat-${pkgver}.jar ${pkgdir}/usr/share/java/tomcat8/diet4j-tomcat-${pkgver}.jar
 }
 
 installOne() {
