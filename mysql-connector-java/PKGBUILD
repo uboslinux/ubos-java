@@ -1,0 +1,22 @@
+pkgname=$(basename $(pwd))
+_name='mysql-connector-java'
+_groupId='mysql'
+pkgver=5.1.38
+pkgrel=1
+pkgdesc='MySQL JDBC Type 4 driver'
+arch=('any')
+url="http://dev.mysql.com/doc/connector-j/en/"
+license=('GPL')
+makedepends=('maven' 'jdk8-openjdk')
+source=("https://repo1.maven.org/maven2/mysql/${_name}/${pkgver}/${_name}-${pkgver}.pom"
+        "https://repo1.maven.org/maven2/mysql/${_name}/${pkgver}/${_name}-${pkgver}.jar")
+
+sha512sums=('429418c5b34021160e45c9b9b3d48e505e642e8ead5ff3483b366dc20e304d7a7d0f1706b72fab824da17593565e3c9a5783b97d8a6cf515bdc01211a8af17e5'
+            '242ecd11baaec12d33c1471f5b3f3637f3232266a49c8940129b1390cb8643a556166f87614021007cd2cca7ad0a28fc6b79b67bb65ab602e577d2bfe666429b')
+
+package() {
+    install -m644 -D ${srcdir}/${_name}-${pkgver}.jar \
+                     ${pkgdir}/usr/lib/java/${_groupId//.//}/${_name}/${pkgver}/${_name}-${pkgver}.jar
+    install -m644 -D ${srcdir}/${_name}-${pkgver}.pom \
+                     ${pkgdir}/usr/lib/java/${_groupId//.//}/${_name}/${pkgver}/${_name}-${pkgver}.pom
+}
