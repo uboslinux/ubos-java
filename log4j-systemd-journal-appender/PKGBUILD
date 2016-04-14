@@ -1,0 +1,21 @@
+pkgname=$(basename $(pwd))
+_groupId='de.bwaldvogel'
+_name=${pkgname}
+pkgver=2.2.2
+pkgrel=1
+pkgdesc='Log4j appender for systemd-journal that maintains structured log data'
+arch=('any')
+url="https://github.com/bwaldvogel/log4j-systemd-journal-appender"
+license=('Apache')
+makedepends=('maven' 'jdk8-openjdk')
+source=("https://repo1.maven.org/maven2/${_groupId//.//}/${_name}/${pkgver}/${_name}-${pkgver}.pom"
+        "https://repo1.maven.org/maven2/${_groupId//.//}/${_name}/${pkgver}/${_name}-${pkgver}.jar")
+sha512sums=('b817b7dfdb77960fecd4b820278a38721dcf8ba7284c9906534c35b6d684af5febb1e76c3a91bd02cf6fe214c92a803257f5b517e14bb35db3abc90d3149d29d'
+            'b866cadf237a2baf322d8b42f83e6bea34aecb7cb5a78a93de721321f6f3a6dd38ca39f1b8be48857296ed6a9af31a577babf1bca2d0b8c0d7e76dccd3a24699')
+
+package() {
+    install -m644 -D ${srcdir}/${_name}-${pkgver}.jar \
+                     ${pkgdir}/usr/lib/java/${_groupId//.//}/${_name}/${pkgver}/${_name}-${pkgver}.jar
+    install -m644 -D ${srcdir}/${_name}-${pkgver}.pom \
+                     ${pkgdir}/usr/lib/java/${_groupId//.//}/${_name}/${pkgver}/${_name}-${pkgver}.pom
+}

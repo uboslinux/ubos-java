@@ -1,0 +1,3 @@
+log4j-systemd-journal-appender-*.jar
+log4j-systemd-journal-appender-*.pom
+log4j-systemd-journal-appender-*.pkg*
