@@ -1,7 +1,7 @@
 pkgname=$(basename $(pwd))
 _name='mysql-connector-java'
 _groupId='mysql'
-pkgver=5.1.38
+pkgver=6.0.5
 pkgrel=1
 pkgdesc='MySQL JDBC Type 4 driver'
 arch=('any')
@@ -11,8 +11,8 @@ makedepends=('maven' 'jdk8-openjdk')
 source=("https://repo1.maven.org/maven2/mysql/${_name}/${pkgver}/${_name}-${pkgver}.pom"
         "https://repo1.maven.org/maven2/mysql/${_name}/${pkgver}/${_name}-${pkgver}.jar")
 
-sha512sums=('429418c5b34021160e45c9b9b3d48e505e642e8ead5ff3483b366dc20e304d7a7d0f1706b72fab824da17593565e3c9a5783b97d8a6cf515bdc01211a8af17e5'
-            '242ecd11baaec12d33c1471f5b3f3637f3232266a49c8940129b1390cb8643a556166f87614021007cd2cca7ad0a28fc6b79b67bb65ab602e577d2bfe666429b')
+sha512sums=('6b95186702d7bb78ae3b6c100d0177cef2e10333374e5511f8d373c50024d29449b4a3e63e1b9877d7e3013c78a36eb5c0e5b01706c8d3ecab1da40e4cdeca53'
+            '21d127e9fe3e6b08ef687aa3e8c1ff829f98c1dfbf1e2c8f9522f569bb21c29d0c41556ca8f9feb3bbff628eda145ff334c25cc60790ebe283109541e7a34244')
 
 package() {
     install -m644 -D ${srcdir}/${_name}-${pkgver}.jar \
