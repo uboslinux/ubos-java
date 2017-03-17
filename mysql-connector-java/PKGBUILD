@@ -1,7 +1,7 @@
 pkgname=$(basename $(pwd))
 _name='mysql-connector-java'
 _groupId='mysql'
-pkgver=6.0.5
+pkgver=6.0.6
 pkgrel=1
 pkgdesc='MySQL JDBC Type 4 driver'
 arch=('any')
