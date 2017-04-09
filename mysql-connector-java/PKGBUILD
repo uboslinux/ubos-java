@@ -11,8 +11,8 @@ makedepends=('maven' 'jdk8-openjdk')
 source=("https://repo1.maven.org/maven2/mysql/${_name}/${pkgver}/${_name}-${pkgver}.pom"
         "https://repo1.maven.org/maven2/mysql/${_name}/${pkgver}/${_name}-${pkgver}.jar")
 
-sha512sums=('6b95186702d7bb78ae3b6c100d0177cef2e10333374e5511f8d373c50024d29449b4a3e63e1b9877d7e3013c78a36eb5c0e5b01706c8d3ecab1da40e4cdeca53'
-            '21d127e9fe3e6b08ef687aa3e8c1ff829f98c1dfbf1e2c8f9522f569bb21c29d0c41556ca8f9feb3bbff628eda145ff334c25cc60790ebe283109541e7a34244')
+sha512sums=('50d63d581095980fe026d5136400a1e49baff31f782c0ec878fab9e113a0a69ed1adcc4b4e74532eb0448bc77ed34a7c0fe7255cd5d7f05d05874dfb02d8ac79'
+            '6dfc494e7473bc03d07ee3987d1ccdc534eb5a961ecf2fe72c94c083a8ce8990b8aa82f7300b6cd94964a06f30e6eaab893aa44ae6aef56d7bcdce002b828fa2')
 
 package() {
     install -m644 -D ${srcdir}/${_name}-${pkgver}.jar \
