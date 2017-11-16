@@ -1,0 +1,5 @@
+pkg/
+target/
+undertow-*.jar
+undertow-*.pom
+undertow-*.pkg*

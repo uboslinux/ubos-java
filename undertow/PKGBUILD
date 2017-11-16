@@ -1,0 +1,56 @@
+pkgname=$(basename $(pwd))
+_groupId='io.undertow'
+_postfix='.Final'
+pkgver=1.4.21
+pkgrel=1
+pkgdesc='Undertow web server, with handler registration'
+arch=('any')
+url="http://undertow.io/"
+license=('Apache')
+makedepends=('maven' )
+depends=(
+    'diet4j'
+    'jdk9-openjdk'
+)
+_jar=(
+    'undertow-core'
+    'undertow-servlet'
+    'undertow-websockets-jsr'
+)
+
+for _j in ${_jar[@]}; do
+    source+=(
+        "http://search.maven.org/remotecontent?filepath=${_groupId//.//}/${_j}/${pkgver}${_postfix}/${_j}-${pkgver}${_postfix}.jar"
+        "http://search.maven.org/remotecontent?filepath=${_groupId//.//}/${_j}/${pkgver}${_postfix}/${_j}-${pkgver}${_postfix}.pom"
+    )
+    noextract+=(
+        "${_j}-${pkgver}.jar"
+        "${_j}-${pkgver}.pom"
+    )
+done
+sha512sums=('e700c387631b9ad4a48d8d238876c302aaf009e474bdd90158bbdd252361d43f6d7dc9581cf8da9f4bf196cd287c35d2c86b747d1601ed5b61f8c660e034d904'
+            'b7b1fb2628fd93e3b5e5623e0337352c362caa6afb6b3d1d2764aff8ca3919775ac7e9a929f3ed30985a8b938196fac113e09a701f601bb89cff11cd24f81ee4'
+            '6fd632034b89dfa064e8852cb3024e49afaf3e9f9577b40422d754a4d74125bfb7bb2b199bbc8ecd4c9dbeb8d093f282ad9a198270443c3cd0d0b0f817843b60'
+            '9ca819942cb192d7e86c84fac64d502888e3fa22aa909f7de803655bacfe729e9d63d0334974bdcbd5164ff16eaa6f60c402565275fa0c4e1860f26260a4155a'
+            'b6c1855cb0bd393e4d24554994cb9e6afbe5f3cbe03c56690d99822ee44026dcb7d80b2dafce45f2a356571372dea65eaa1c0b3f4b4193ddce016996562de410'
+            'e6ad308af93bf189f15336a9c31f8293ff0957617bde9904493cb0789e274fca078459d1b59980224ee1cfe2d8b91b32a02c3cf2208c7b5307a8eb38bacdba46')
+
+prepare() {
+    # Set pom.xml versions correctly; depends on XML-comment-based markup in pom.xml files
+    find ${startdir}/ -name pkg -and -type d -prune -or -name pom.xml -exec perl -pi -e "s/(?<=\<\!-- PKGVER -->)(\d+(\.\d+)+)(?=\<\!-- \/PKGVER -->)/${pkgver}/g" {} \;
+}
+
+build() {
+    cd ${startdir}/net.ubos.undertow
+    mvn package install ${MVN_OPTS}
+}
+
+package() {
+    for _j in ${_jar[@]}; do
+        install -m644 -D ${srcdir}/${_j}-${pkgver}${_postfix}.{jar,pom} \
+                      -t ${pkgdir}/usr/lib/java/${_groupId//.//}/${_j}/${pkgver}/
+    done
+
+    install -m644 -D ${startdir}/net.ubos.undertow/target/net.ubos.undertow-${pkgver}.{jar,pom} \
+                  -t ${pkgdir}/usr/lib/java/net/ubos/net.ubos.undertow/${pkgver}/
+}
