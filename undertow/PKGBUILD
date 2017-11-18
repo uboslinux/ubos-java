@@ -3,7 +3,7 @@ _groupId='io.undertow'
 _postfix='.Final'
 pkgver=1.4.21
 pkgrel=1
-pkgdesc='Undertow web server, with handler registration'
+pkgdesc='Undertow web server'
 arch=('any')
 url="http://undertow.io/"
 license=('Apache')
@@ -12,7 +12,6 @@ makedepends=(
     'jdk9-openjdk'
 )
 depends=(
-    'diet4j'
     'jboss-logging-java'
     'jboss-xnio-java'
     'java-environment=9'
@@ -47,17 +46,9 @@ prepare() {
     find ${startdir}/ -name pkg -and -type d -prune -or -name pom.xml -exec perl -pi -e "s/(?<=\<\!-- PKGVER -->)(\d+(\.\d+)+)(?=\<\!-- \/PKGVER -->)/${pkgver}/g" {} \;
 }
 
-build() {
-    cd ${startdir}/net.ubos.undertow
-    mvn package install ${MVN_OPTS}
-}
-
 package() {
     for _j in ${_jar[@]}; do
         install -m644 -D ${srcdir}/${_j}-${pkgver}${_postfix}.{jar,pom} \
                       -t ${pkgdir}/usr/lib/java/${_groupId//.//}/${_j}/${pkgver}/
     done
-
-    install -m644 -D ${startdir}/net.ubos.undertow/target/net.ubos.undertow-${pkgver}.{jar,pom} \
-                  -t ${pkgdir}/usr/lib/java/net/ubos/net.ubos.undertow/${pkgver}/
 }

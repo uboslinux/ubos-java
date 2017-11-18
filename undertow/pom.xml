@@ -8,10 +8,6 @@
     <url>http://undertow.io/</url>
     <version><!-- PKGVER -->1.4.21<!-- /PKGVER --></version>
 
-    <modules>
-        <module>net.ubos.undertow</module>
-    </modules>
-
     <build>
         <plugins>
             <plugin>
