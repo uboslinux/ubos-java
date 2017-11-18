@@ -1,0 +1,21 @@
+pkgname=$(basename $(pwd))
+_name='jboss-logging'
+_groupId='org.jboss.logging'
+_postfix='.Final'
+pkgver=3.3.1
+pkgrel=1
+pkgdesc='JBoss logging'
+arch=('any')
+url="http://jboss.org/"
+license=('Apache')
+depends=(
+    'java-environment=9'
+)
+source=("http://search.maven.org/remotecontent?filepath=${_groupId//.//}/${_name}/${pkgver}${_postfix}/${_name}-${pkgver}${_postfix}.jar")
+sha512sums=('e887ba7bc5bd0cccb0ad8fa9d6ced29f2097914797444c8ea5ceb3d0a92b07933d37c4e714af3c87069bf5858fb52ed4fdd0da7de0559a74f1ad82abc09385f9')
+noextract=("${source[@]##*/}")
+
+package() {
+    install -m644 -D ${srcdir}/${_name}-${pkgver}${_postfix}.jar \
+                     ${pkgdir}/usr/lib/java/${_groupId//.//}/${_name}/${pkgver}/${_name}-${pkgver}${_postfix}.jar
+}
