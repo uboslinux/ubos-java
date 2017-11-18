@@ -7,7 +7,9 @@ pkgdesc='Log4j appender for systemd-journal that maintains structured log data'
 arch=('any')
 url="https://github.com/bwaldvogel/log4j-systemd-journal-appender"
 license=('Apache')
-makedepends=('maven' 'jdk8-openjdk')
+depends=( 
+    'java-environment=9' 
+) 
 source=("https://repo1.maven.org/maven2/${_groupId//.//}/${_name}/${pkgver}/${_name}-${pkgver}.pom"
         "https://repo1.maven.org/maven2/${_groupId//.//}/${_name}/${pkgver}/${_name}-${pkgver}.jar")
 sha512sums=('b817b7dfdb77960fecd4b820278a38721dcf8ba7284c9906534c35b6d684af5febb1e76c3a91bd02cf6fe214c92a803257f5b517e14bb35db3abc90d3149d29d'

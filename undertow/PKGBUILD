@@ -7,10 +7,17 @@ pkgdesc='Undertow web server, with handler registration'
 arch=('any')
 url="http://undertow.io/"
 license=('Apache')
-makedepends=('maven' )
+makedepends=(
+    'maven'
+    'jdk9-openjdk'
+)
 depends=(
     'diet4j'
-    'jdk9-openjdk'
+    'jboss-logging-java'
+    'jboss-xnio-java'
+    'java-environment=9'
+    'slf4j'
+    'wildfly-common-java'
 )
 _jar=(
     'undertow-core'

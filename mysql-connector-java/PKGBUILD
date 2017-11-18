@@ -7,7 +7,9 @@ pkgdesc='MySQL JDBC Type 4 driver'
 arch=('any')
 url="http://dev.mysql.com/doc/connector-j/en/"
 license=('GPL')
-makedepends=('maven' 'jdk8-openjdk')
+depends=( 
+    'java-environment=9' 
+) 
 source=("https://repo1.maven.org/maven2/mysql/${_name}/${pkgver}/${_name}-${pkgver}.pom"
         "https://repo1.maven.org/maven2/mysql/${_name}/${pkgver}/${_name}-${pkgver}.jar")
 

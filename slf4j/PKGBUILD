@@ -7,9 +7,9 @@ arch=('any')
 url="http://slf4j.org/"
 license=('MIT')
 makedepends=('jdk9-openjdk')
-depends=(
-    'jdk9-openjre'
-)
+depends=( 
+    'java-environment=9' 
+) 
 _jar=(
     'log4j-over-slf4j'
     'slf4j-api'
