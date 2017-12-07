@@ -13,6 +13,7 @@ depends=(
 ) 
 _rooturl="http://repo1.maven.org/maven2/${_groupId//.//}"
 source=("${_rooturl}/${_name}/${pkgver}${_postfix}/${_name}-${pkgver}${_postfix}.jar");
+releasepage=('http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.wildfly.common%22%20AND%20a%3A%22wildfly-common%22')
 sha512sums=('1afd052e6cef6415ad0a39386f4ca795f91e751e72e5afabeb312f30f5e0ef0964f616ddd0c43e0c1fade5b1698aee3dd37e004b9602d5c1cf225301108be890')
 noextract=("${source[@]##*/}")
 

@@ -28,7 +28,11 @@ for _j in ${_jar[@]}; do
         "${_j}-${pkgver}.jar"
         "${_j}-${pkgver}.pom"
     )
+    releasepage+=(
+        "http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22${_groupId}%22%20AND%20a%3A%22${_j}%22"
+    )
 done
+
 sha512sums=('0903a65cc6521f31226a4ed80816a334c6a0b8432fbc6d09c4cb99db246edd39374c6f57727e7838e89465916f7e3fbd29fd75e56040b722a2aac04c240e90e9'
             '8494d35cc67886cb2b99d515398de25aa1847ba62de9d26eb3f3f13aab9e866608836f33bad8426f5fa5216e7ad129a42d18f084cc78597185aaf54a0ddb991f'
             '5dd6271fd5b34579d8e66271bab75c89baca8b2ebeaa9966de391284bd08f2d720083c6e0e1edda106ecf8a04e9a32116de6873f0f88c19c049c0fe27e5d820b'

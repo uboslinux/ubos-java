@@ -2,7 +2,7 @@ pkgname=$(basename $(pwd))
 _name='mysql-connector-java'
 _groupId='mysql'
 pkgver=6.0.6
-pkgrel=1
+pkgrel=2
 pkgdesc='MySQL JDBC Type 4 driver'
 arch=('any')
 url="http://dev.mysql.com/doc/connector-j/en/"
@@ -12,7 +12,7 @@ depends=(
 ) 
 source=("https://repo1.maven.org/maven2/mysql/${_name}/${pkgver}/${_name}-${pkgver}.pom"
         "https://repo1.maven.org/maven2/mysql/${_name}/${pkgver}/${_name}-${pkgver}.jar")
-
+releasepage=('http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22mysql%22%20AND%20a%3A%22mysql-connector-java%22')
 sha512sums=('50d63d581095980fe026d5136400a1e49baff31f782c0ec878fab9e113a0a69ed1adcc4b4e74532eb0448bc77ed34a7c0fe7255cd5d7f05d05874dfb02d8ac79'
             '6dfc494e7473bc03d07ee3987d1ccdc534eb5a961ecf2fe72c94c083a8ce8990b8aa82f7300b6cd94964a06f30e6eaab893aa44ae6aef56d7bcdce002b828fa2')
 

@@ -12,6 +12,7 @@ depends=(
     'java-environment=9'
 )
 source=("http://search.maven.org/remotecontent?filepath=${_groupId//.//}/${_name}/${pkgver}${_postfix}/${_name}-${pkgver}${_postfix}.jar")
+releasepage=('http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.jboss.logging%22%20AND%20a%3A%22jboss-logging%22')
 sha512sums=('e887ba7bc5bd0cccb0ad8fa9d6ced29f2097914797444c8ea5ceb3d0a92b07933d37c4e714af3c87069bf5858fb52ed4fdd0da7de0559a74f1ad82abc09385f9')
 noextract=("${source[@]##*/}")
 

@@ -22,6 +22,9 @@ for _m in "${_modules[@]}"; do
     source+=("${_rooturl}/${_m}/${pkgver}${_postfix}/${_m}-${pkgver}${_postfix}.jar");
 done
 
+releasepage=(
+    'http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.jboss.xnio%22%20AND%20a%3A%22xnio-api%22'
+    'http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.jboss.xnio%22%20AND%20a%3A%22xnio-nio%22')
 sha512sums=('539804ceba3c6d9c9bcac89718ea955da135c37d64278d3fadac27d9276a16d9f9ff611105d8665ced0d42876e20579f5e3701edb947af666954f9a5aa6544ae'
             '012a4507025c898550dcd6b882788d8795761944f79f8552cc395d599891d85c41066a0765f5195a4ff7d08270d63a7090aea5da69866a84573199d09da304d6')
 
