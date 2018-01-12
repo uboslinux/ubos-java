@@ -1,8 +1,9 @@
+maintainer="http://indiecomputing.com/"
 pkgname=$(basename $(pwd))
 _groupId='de.bwaldvogel'
 _name=${pkgname}
 pkgver=2.2.2
-pkgrel=2
+pkgrel=3
 pkgdesc='Log4j appender for systemd-journal that maintains structured log data'
 arch=('any')
 url="https://github.com/bwaldvogel/log4j-systemd-journal-appender"

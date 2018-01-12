@@ -1,3 +1,4 @@
+maintainer="http://indiecomputing.com/"
 pkgname=$(basename $(pwd))
 _groupId='io.undertow'
 _postfix='.Final'

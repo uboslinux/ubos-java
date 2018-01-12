@@ -1,9 +1,10 @@
+maintainer="http://indiecomputing.com/"
 pkgname=$(basename $(pwd))
 _name='jboss-logging'
 _groupId='org.jboss.logging'
 _postfix='.Final'
 pkgver=3.3.1
-pkgrel=1
+pkgrel=2
 pkgdesc='JBoss logging'
 arch=('any')
 url="http://jboss.org/"

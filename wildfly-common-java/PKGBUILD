@@ -1,3 +1,4 @@
+maintainer="http://indiecomputing.com/"
 pkgname=$(basename $(pwd))
 _name='wildfly-common'
 _groupId='org.wildfly.common'

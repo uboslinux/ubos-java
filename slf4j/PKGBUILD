@@ -1,11 +1,12 @@
+maintainer="http://indiecomputing.com/"
 pkgname=$(basename $(pwd))
 _groupId='org.slf4j'
 pkgver=1.7.25
-pkgrel=1
+pkgrel=2
 pkgdesc='Simple logging facade for Java'
 arch=('any')
 url="http://slf4j.org/"
-license=('MIT')
+license=('custom:slf4j')
 makedepends=('jdk9-openjdk')
 depends=( 
     'java-environment=9' 
@@ -51,4 +52,6 @@ package() {
         install -m644 -D ${srcdir}/${_j}-${pkgver}${_postfix}.{jar,pom} \
                       -t ${pkgdir}/usr/lib/java/${_groupId//.//}/${_j}/${pkgver}/
     done
+
+    install -m644 -D ${startdir}/LICENSE -t ${pkgdir}/usr/share/licenses/slf4j
 }

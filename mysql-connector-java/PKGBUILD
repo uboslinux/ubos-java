@@ -1,8 +1,9 @@
+maintainer="http://indiecomputing.com/"
 pkgname=$(basename $(pwd))
 _name='mysql-connector-java'
 _groupId='mysql'
 pkgver=6.0.6
-pkgrel=2
+pkgrel=3
 pkgdesc='MySQL JDBC Type 4 driver'
 arch=('any')
 url="http://dev.mysql.com/doc/connector-j/en/"
