@@ -1,21 +1,21 @@
 maintainer="http://indiecomputing.com/"
 pkgname=$(basename $(pwd))
-_name='wildfly-common'
-_groupId='org.wildfly.common'
+_name='wildfly-client-config'
+_groupId='org.wildfly.client'
 _postfix='.Final'
-pkgver=1.2.0
-pkgrel=2
-pkgdesc='org.wildfly.common'
+pkgver=1.0.0
+pkgrel=1
+pkgdesc='org.wildfly.client'
 arch=('any')
 url="http://jboss.org/"
 license=('Apache')
-depends=(
+depends=( 
     'java-environment' 
 ) 
 _rooturl="http://repo1.maven.org/maven2/${_groupId//.//}"
 source=("${_rooturl}/${_name}/${pkgver}${_postfix}/${_name}-${pkgver}${_postfix}.jar");
 releasepage=("http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22${_groupId}%22%20AND%20a%3A%22${_name}%22")
-sha512sums=('1afd052e6cef6415ad0a39386f4ca795f91e751e72e5afabeb312f30f5e0ef0964f616ddd0c43e0c1fade5b1698aee3dd37e004b9602d5c1cf225301108be890')
+sha512sums=('81b6d7aaaf7d81701fd6c2feb8fc2f2af23ef67f057d09d4b8c1a33efc544f7af90035e000aeace95b7ceaf34219493d088e190f883656ef0a225ec5742a4349')
 noextract=("${source[@]##*/}")
 
 package() {

@@ -3,14 +3,14 @@ pkgname=$(basename $(pwd))
 _groupId='io.undertow'
 _postfix='.Final'
 pkgver=1.4.21
-pkgrel=1
+pkgrel=2
 pkgdesc='Undertow web server'
 arch=('any')
 url="http://undertow.io/"
 license=('Apache')
 makedepends=(
     'maven'
-    'jdk9-openjdk'
+    'jdk8-openjdk'
 )
 depends=(
     'jboss-logging-java'
@@ -34,12 +34,8 @@ for _j in ${_jar[@]}; do
         "${_j}-${pkgver}.jar"
         "${_j}-${pkgver}.pom"
     )
+    releasepage+=("http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22${_groupId}%22%20AND%20a%3A%22${_j}%22")
 done
-releasepage=(
-    'http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22io.undertow%22%20AND%20a%3A%22undertow-core%22'
-    'http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22io.undertow%22%20AND%20a%3A%22undertow-servlet%22'
-    'http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22io.undertow%22%20AND%20a%3A%22undertow-websockets-jsr%22'
-)
 sha512sums=('e700c387631b9ad4a48d8d238876c302aaf009e474bdd90158bbdd252361d43f6d7dc9581cf8da9f4bf196cd287c35d2c86b747d1601ed5b61f8c660e034d904'
             'b7b1fb2628fd93e3b5e5623e0337352c362caa6afb6b3d1d2764aff8ca3919775ac7e9a929f3ed30985a8b938196fac113e09a701f601bb89cff11cd24f81ee4'
             '6fd632034b89dfa064e8852cb3024e49afaf3e9f9577b40422d754a4d74125bfb7bb2b199bbc8ecd4c9dbeb8d093f282ad9a198270443c3cd0d0b0f817843b60'

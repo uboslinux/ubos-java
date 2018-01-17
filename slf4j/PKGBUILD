@@ -2,14 +2,14 @@ maintainer="http://indiecomputing.com/"
 pkgname=$(basename $(pwd))
 _groupId='org.slf4j'
 pkgver=1.7.25
-pkgrel=2
+pkgrel=3
 pkgdesc='Simple logging facade for Java'
 arch=('any')
 url="http://slf4j.org/"
 license=('custom:slf4j')
 makedepends=('jdk9-openjdk')
 depends=( 
-    'java-environment=9' 
+    'java-environment>=8' 
 ) 
 _jar=(
     'log4j-over-slf4j'
