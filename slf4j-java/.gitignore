@@ -2,4 +2,4 @@ slf4j-*.pom
 slf4j-*.jar
 log4j-*.pom
 log4j-*.jar
-slf4j-*.pkg*
+slf4j-java*.pkg*
