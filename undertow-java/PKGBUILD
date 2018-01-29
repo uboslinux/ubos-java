@@ -3,7 +3,7 @@ pkgname=$(basename $(pwd))
 _groupId='io.undertow'
 _postfix='.Final'
 pkgver=1.4.21
-pkgrel=2
+pkgrel=3
 pkgdesc='Undertow web server'
 arch=('any')
 url="http://undertow.io/"
@@ -16,7 +16,7 @@ depends=(
     'jboss-logging-java'
     'jboss-xnio-java'
     'java-environment=9'
-    'slf4j'
+    'slf4j-java'
     'wildfly-common-java'
 )
 _jar=(
