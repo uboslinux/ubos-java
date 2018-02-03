@@ -3,13 +3,14 @@ pkgname=$(basename $(pwd))
 _groupId='org.jboss.xnio'
 _postfix='.Final'
 pkgver=3.5.4
-pkgrel=2
+pkgrel=3
 pkgdesc='JBoss xnio'
 arch=('any')
 url="http://jboss.org/"
 license=('Apache')
 depends=( 
-    'java-environment=9' 
+    'java-environment'
+    'wildfly-client-java'
 ) 
 _rooturl="http://repo1.maven.org/maven2/${_groupId//.//}"
 
