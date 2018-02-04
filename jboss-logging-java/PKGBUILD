@@ -4,13 +4,13 @@ _name='jboss-logging'
 _groupId='org.jboss.logging'
 _postfix='.Final'
 pkgver=3.3.1
-pkgrel=2
+pkgrel=3
 pkgdesc='JBoss logging'
 arch=('any')
 url="http://jboss.org/"
 license=('Apache')
 depends=(
-    'java-environment=9'
+    'java-environment'
 )
 source=("http://search.maven.org/remotecontent?filepath=${_groupId//.//}/${_name}/${pkgver}${_postfix}/${_name}-${pkgver}${_postfix}.jar")
 releasepage=('http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.jboss.logging%22%20AND%20a%3A%22jboss-logging%22')

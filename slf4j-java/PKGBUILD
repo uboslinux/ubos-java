@@ -9,7 +9,7 @@ url="http://slf4j.org/"
 license=('custom:slf4j')
 makedepends=('jdk9-openjdk')
 depends=( 
-    'java-environment>=8' 
+    'java-environment' 
 ) 
 _jar=(
     'log4j-over-slf4j'

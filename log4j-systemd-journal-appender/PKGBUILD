@@ -3,13 +3,13 @@ pkgname=$(basename $(pwd))
 _groupId='de.bwaldvogel'
 _name=${pkgname}
 pkgver=2.2.2
-pkgrel=4
+pkgrel=5
 pkgdesc='Log4j appender for systemd-journal that maintains structured log data'
 arch=('any')
 url="https://github.com/bwaldvogel/log4j-systemd-journal-appender"
 license=("custom:${pkgname}")
 depends=( 
-    'java-environment=9' 
+    'java-environment' 
 ) 
 source=("https://repo1.maven.org/maven2/${_groupId//.//}/${_name}/${pkgver}/${_name}-${pkgver}.pom"
         "https://repo1.maven.org/maven2/${_groupId//.//}/${_name}/${pkgver}/${_name}-${pkgver}.jar"
