@@ -3,8 +3,8 @@ pkgname=$(basename $(pwd))
 _name='wildfly-common'
 _groupId='org.wildfly.common'
 _postfix='.Final'
-pkgver=1.2.0
-pkgrel=2
+pkgver=1.3.0
+pkgrel=1
 pkgdesc='org.wildfly.common'
 arch=('any')
 url="http://jboss.org/"
@@ -15,7 +15,7 @@ depends=(
 _rooturl="http://repo1.maven.org/maven2/${_groupId//.//}"
 source=("${_rooturl}/${_name}/${pkgver}${_postfix}/${_name}-${pkgver}${_postfix}.jar");
 releasepage=("http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22${_groupId}%22%20AND%20a%3A%22${_name}%22")
-sha512sums=('1afd052e6cef6415ad0a39386f4ca795f91e751e72e5afabeb312f30f5e0ef0964f616ddd0c43e0c1fade5b1698aee3dd37e004b9602d5c1cf225301108be890')
+sha512sums=('f056be6b88a76bf45be9acce60d4e8da0dd1fc24c8d7dc08152e3d735ad23d78a6814082d2dba5d7e00ca9f46f41af26f71133f55d0e5659213e61037e7cdfaf')
 noextract=("${source[@]##*/}")
 
 package() {

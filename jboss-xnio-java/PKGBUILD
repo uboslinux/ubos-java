@@ -2,8 +2,8 @@ maintainer="http://indiecomputing.com/"
 pkgname=$(basename $(pwd))
 _groupId='org.jboss.xnio'
 _postfix='.Final'
-pkgver=3.5.4
-pkgrel=3
+pkgver=3.6.1
+pkgrel=1
 pkgdesc='JBoss xnio'
 arch=('any')
 url="http://jboss.org/"
@@ -27,8 +27,8 @@ done
 releasepage=(
     'http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.jboss.xnio%22%20AND%20a%3A%22xnio-api%22'
     'http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.jboss.xnio%22%20AND%20a%3A%22xnio-nio%22')
-sha512sums=('539804ceba3c6d9c9bcac89718ea955da135c37d64278d3fadac27d9276a16d9f9ff611105d8665ced0d42876e20579f5e3701edb947af666954f9a5aa6544ae'
-            '012a4507025c898550dcd6b882788d8795761944f79f8552cc395d599891d85c41066a0765f5195a4ff7d08270d63a7090aea5da69866a84573199d09da304d6')
+sha512sums=('be89e07c24ae42af6f105c13daeffb750c81153ac34476414a406db7e8ff3970ac7a1a13aac1653d7011aef32bc86824ee04b8f64768d9c9e8c8a0c596f490fe'
+            'a938f9c4013e761615067f70dedd7b327f162b731a034f7482809e477c887ef876bc1f1c03ec5cb71fc7e45433113019978bbaf5ef280a99ebf32f31f26d84cc')
 
 noextract=("${source[@]##*/}")
 
