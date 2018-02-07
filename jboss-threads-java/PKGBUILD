@@ -1,23 +1,20 @@
 maintainer="http://indiecomputing.com/"
 pkgname=$(basename $(pwd))
-_groupId='org.jboss.xnio'
+_groupId='org.jboss.threads'
 _postfix='.Final'
-pkgver=3.6.1
-pkgrel=2
-pkgdesc='JBoss xnio'
+pkgver=2.3.0
+pkgrel=1
+pkgdesc='JBoss threads'
 arch=('any')
 url="http://jboss.org/"
 license=('Apache')
 depends=( 
-    'java-environment'
-    'jboss-threads-java'
-    'wildfly-client-java'
+    'wildfly-common-java'
 ) 
 _rooturl="http://repo1.maven.org/maven2/${_groupId//.//}"
 
 _modules=(
-    xnio-api
-    xnio-nio
+    jboss-threads
 )
 
 source=()
@@ -26,10 +23,8 @@ for _m in "${_modules[@]}"; do
 done
 
 releasepage=(
-    'http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.jboss.xnio%22%20AND%20a%3A%22xnio-api%22'
-    'http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.jboss.xnio%22%20AND%20a%3A%22xnio-nio%22')
-sha512sums=('be89e07c24ae42af6f105c13daeffb750c81153ac34476414a406db7e8ff3970ac7a1a13aac1653d7011aef32bc86824ee04b8f64768d9c9e8c8a0c596f490fe'
-            'a938f9c4013e761615067f70dedd7b327f162b731a034f7482809e477c887ef876bc1f1c03ec5cb71fc7e45433113019978bbaf5ef280a99ebf32f31f26d84cc')
+    'http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.jboss.threads%22%20AND%20a%3A%22jboss-threads%22')
+sha512sums=('ba887202119e76223b628de9d47a9bd4ac0159474e4db4e38854826ca530223c66d69eb8b1be078c5cc47e9de71eddaa8c7190e11e70da453bb4cd2da5dc32af')
 
 noextract=("${source[@]##*/}")
 
