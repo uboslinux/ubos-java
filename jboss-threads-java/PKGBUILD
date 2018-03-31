@@ -2,7 +2,7 @@ maintainer="http://indiecomputing.com/"
 pkgname=$(basename $(pwd))
 _groupId='org.jboss.threads'
 _postfix='.Final'
-pkgver=2.3.0
+pkgver=2.3.2
 pkgrel=1
 pkgdesc='JBoss threads'
 arch=('any')
@@ -24,7 +24,7 @@ done
 
 releasepage=(
     'http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.jboss.threads%22%20AND%20a%3A%22jboss-threads%22')
-sha512sums=('ba887202119e76223b628de9d47a9bd4ac0159474e4db4e38854826ca530223c66d69eb8b1be078c5cc47e9de71eddaa8c7190e11e70da453bb4cd2da5dc32af')
+sha512sums=('0cab83da3bedc83ca912ad88297941a88aa7c1db168b1436fe18af88833e9d67c66a0c8d1273cae43bf7aa887795bb65738a1cb986645358037ec998c4d7678c')
 
 noextract=("${source[@]##*/}")
 
