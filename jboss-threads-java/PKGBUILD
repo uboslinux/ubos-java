@@ -3,7 +3,7 @@ pkgname=$(basename $(pwd))
 _groupId='org.jboss.threads'
 _postfix='.Final'
 pkgver=2.3.2
-pkgrel=1
+pkgrel=2
 pkgdesc='JBoss threads'
 arch=('any')
 url="http://jboss.org/"
@@ -31,10 +31,8 @@ noextract=("${source[@]##*/}")
 package() {
     cd "${srcdir}"
 
-    mkdir -p -m755 ${pkgdir}/usr/lib/java/${_groupId//.//}
-
     for _m in "${_modules[@]}"; do
-        install -D -m644 "${_m}-${pkgver}${_postfix}.jar" "${pkgdir}/usr/lib/java/${_groupId//.//}/${_m}/${pkgver}/${_m}-${pkgver}${_postfix}.jar"
+        install -D -m0644 "${_m}-${pkgver}${_postfix}.jar" "${pkgdir}/usr/lib/java/${_groupId//.//}/${_m}/${pkgver}/${_m}-${pkgver}${_postfix}.jar"
     done
 }
 
