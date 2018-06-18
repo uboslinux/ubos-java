@@ -1,0 +1,44 @@
+maintainer="http://indiecomputing.com/"
+pkgname=$(basename $(pwd))
+_name='protobuf-java'
+_groupId='com.google.protobuf'
+pkgver=3.5.1
+pkgrel=1
+pkgdesc='Protocol Buffers [Core]'
+arch=('any')
+url="https://developers.google.com/protocol-buffers/"
+license=("custom:${pkgname}")
+depends=( 
+    'java-environment'
+) 
+_rooturl="http://search.maven.org/remotecontent?filepath=com/google/protobuf"
+_modules=(
+    'protobuf-java'
+    'protobuf-java-util'
+)
+options=('!strip')
+noextract=("${source[@]##*/}")
+releasepage=('https://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.google.protobuf%22')
+
+source=('https://raw.githubusercontent.com/google/protobuf/master/LICENSE')
+for _m in "${_modules[@]}"; do \
+    source+=("${_rooturl}/${_m}/${pkgver}/${_m}-${pkgver}.jar"); \
+    source+=("${_rooturl}/${_m}/${pkgver}/${_m}-${pkgver}.pom"); \
+done
+
+sha512sums=('83630af6c999eed50aa04cc90b22dcba4e28946d000a61947859246a390ce4e1b5fa1c4f3063ab0772cbcbfc943f0f0991d97a665ee25aaf12de342ac1afd3a5'
+            '1be861c2b1b0773f74300c6e2a81ce8e9e0c3295c80029f83d4bf9c75d7bfa56503f3408c5b570ecb6677953150c96416bedbe740645cdf47135b340d3980ef9'
+            '551fd4a6c8c341278e96dfd6a56927f4c7e59da83d1ff46ee0b63fc7bf30da1498c8f35c9173498461bf4df50c6a34df9e89160dac519a03ef9b29a760939799'
+            '382827cb0ab353c34f64ac560a97ca99dc26a9a03ab4ad35b175d311a563a5a99353161e23dd2776be8cf86b5e3be095d575e6977c900e5db83e36ad60f3d47b'
+            '56619e184d473db4d493e10dac73972b86e3772295744150a697d199126e48a6e5be69433349c215ed2b330edc852627839f723756c50a75c011cf49345a1228')
+
+package() {
+    cd "${srcdir}"
+
+    install -m644 -D LICENSE -t ${pkgdir}/usr/share/licenses/${pkgname}
+ 
+    for _m in "${_modules[@]}"; do
+        install -D -m644 "${_m}-${pkgver}.jar" "${pkgdir}/usr/lib/java/${_groupId//.//}/${_m}/${pkgver}/${_m}-${pkgver}.jar"
+        install -D -m644 "${_m}-${pkgver}.pom" "${pkgdir}/usr/lib/java/${_groupId//.//}/${_m}/${pkgver}/${_m}-${pkgver}.pom"
+    done
+}

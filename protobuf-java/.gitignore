@@ -1,0 +1,6 @@
+LICENSE
+protobuf-java-*-any.pkg*
+protobuf-java-*.jar
+protobuf-java-*.pom
+protobuf-java-util-*.jar
+protobuf-java-util-*.pom
