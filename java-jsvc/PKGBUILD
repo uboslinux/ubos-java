@@ -1,9 +1,10 @@
 # Maintainer: Guillaume ALAUX <guillaume@archlinux.org>
 # Brought up to date mby Indie Computing
 pkgname=('java-commons-daemon' 'java-jsvc')
-pkgbase=java-commons-daemon
+# pkgbase=java-commons-daemon
+pkgbase=java-jsvc
 pkgver=1.2.2
-pkgrel=2
+pkgrel=3
 arch=('x86_64')
 url='https://commons.apache.org/proper/commons-daemon/'
 license=('APACHE')
