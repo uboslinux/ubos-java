@@ -1,0 +1,26 @@
+maintainer="http://indiecomputing.com/"
+pkgname=$(basename $(pwd))
+_name='postgresql'
+_groupId='org.postgresql'
+pkgver=42.2.9
+pkgrel=1
+pkgdesc='Postgresql JDBC driver'
+arch=('any')
+url="https://jdbc.postgresql.org/"
+license=('GPL2')
+depends=(
+    'java-environment'
+)
+source=("https://repo1.maven.org/maven2/${_groupId//.//}/${_name}/${pkgver}/${_name}-${pkgver}.pom"
+        "https://repo1.maven.org/maven2/${_groupId//.//}/${_name}/${pkgver}/${_name}-${pkgver}.jar")
+
+releasepage=('https://search.maven.org/artifact/org.postgresql/postgresql')
+sha512sums=('18cbba551e9cc4c894a6de8b3946672661be0eba7229978418d735cf06a7e695aab6b1ec854d35ac42fba8b4e8e1d9db0f2641bbc053a8292d4680695c7f4b04'
+            '472f8bcbf328c404e15c451d7766c4709ee35c70dfce4d24d3981eaadeb4d45382c7e53243b9781f15490a4ecf4f978d9e7522b0578e99049b19ca27f72a2cdc')
+
+package() {
+    install -m644 -D ${srcdir}/${_name}-${pkgver}.jar \
+                     ${pkgdir}/usr/lib/java/${_groupId//.//}/${_name}/${pkgver}/${_name}-${pkgver}.jar
+    install -m644 -D ${srcdir}/${_name}-${pkgver}.pom \
+                     ${pkgdir}/usr/lib/java/${_groupId//.//}/${_name}/${pkgver}/${_name}-${pkgver}.pom
+}
