@@ -1,0 +1,55 @@
+# Maintainer: Guillaume ALAUX <guillaume@archlinux.org>
+# Brought up to date mby Indie Computing
+pkgname=('java-commons-daemon' 'java-jsvc')
+pkgbase=java-commons-daemon
+pkgver=1.2.2
+pkgrel=1
+arch=('x86_64')
+url='https://commons.apache.org/proper/commons-daemon/'
+license=('APACHE')
+_libname=commons-daemon
+source=(https://archive.apache.org/dist/commons/daemon/source/${_libname}-${pkgver}-src.tar.gz{,.asc})
+validpgpkeys=('F7DA48BB64BCB84ECBA7EE6935CD23C10D498E23') # Mladen Turk (Default signing key)
+sha256sums=('ebd9d50989ee2009cc83f501e6793ad5978672ecea97be5198135a081a8aac71'
+            'SKIP')
+makedepends=('ant' 'docbook2x' 'docbook-xsl' 'java-environment=8')
+
+releasepage=('https://git.archlinux.org/svntogit/packages.git/tree/trunk?h=packages/java-commons-daemon')
+pkgverforked=('1.0.15-4')
+
+
+build() {
+  # commons-daemon.jar
+  cd "${srcdir}/${_libname}-${pkgver}-src"
+  mvn -Drat.skip=true package
+
+  # jsvc
+  cd "${srcdir}/${_libname}-${pkgver}-src/src/native/unix"
+  JAVA_HOME=/usr/lib/jvm/default ./configure
+  make
+  docbook2man man/jsvc.1.xml
+}
+
+package_java-commons-daemon() {
+  pkgdesc='Alternative invocation mechanism for unix-daemon-like java code'
+  depends=('java-runtime')
+
+  cd "${srcdir}/${_libname}-${pkgver}-src"
+
+  install -Dm644 target/${_libname}-${pkgver}.jar \
+                 ${pkgdir}/usr/share/java/${_libname}-${pkgver}.jar
+  ln -s ${_libname}-${pkgver}.jar \
+        ${pkgdir}/usr/share/java/${_libname}.jar
+}
+
+package_java-jsvc() {
+  pkgdesc='Apache application for making Java applications run on UNIX more easily'
+  depends=("java-${_libname}" 'libcap')
+
+  cd "${srcdir}/${_libname}-${pkgver}-src/src/native/unix"
+
+  install -Dm755 jsvc ${pkgdir}/usr/bin/jsvc
+  install -Dm644 JSVC.1 ${pkgdir}/usr/share/man/man1/JSVC.1
+}
+
+
