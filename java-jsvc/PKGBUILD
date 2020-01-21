@@ -3,7 +3,7 @@
 # Brought up to date and simplified into one package by Indie Computing
 pkgname=('java-jsvc')
 pkgver=1.2.2
-pkgrel=5
+pkgrel=6
 arch=('x86_64')
 url='https://commons.apache.org/proper/commons-daemon/'
 pkgdesc='Apache application for making Java applications run on UNIX more easily'
@@ -15,6 +15,7 @@ sha256sums=('ebd9d50989ee2009cc83f501e6793ad5978672ecea97be5198135a081a8aac71'
             'SKIP')
 depends=('java-runtime' 'libcap')
 makedepends=('ant' 'docbook2x' 'docbook-xsl' 'java-environment=8')
+replaces=('java-commons-daemon')
 
 releasepage=('https://git.archlinux.org/svntogit/packages.git/tree/trunk?h=packages/java-commons-daemon')
 pkgverforked=('1.0.15-4')
