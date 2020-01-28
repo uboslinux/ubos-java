@@ -2,7 +2,7 @@ maintainer="http://indiecomputing.com/"
 pkgname=$(basename $(pwd))
 _name='protobuf-java'
 _groupId='com.google.protobuf'
-pkgver=3.6.1
+pkgver=3.11.1
 pkgrel=1
 pkgdesc='Protocol Buffers [Core]'
 arch=('any')
@@ -27,10 +27,10 @@ for _m in "${_modules[@]}"; do \
 done
 
 sha512sums=('83630af6c999eed50aa04cc90b22dcba4e28946d000a61947859246a390ce4e1b5fa1c4f3063ab0772cbcbfc943f0f0991d97a665ee25aaf12de342ac1afd3a5'
-            '7a6d14e27268223cb64a005f73d32c1077689b51a014f960a185f35d524be7107b8fb5e7d22ed3149ceddfb1d2d0cabd7eee9f4be96bbc4c5437f476198b02c7'
-            'b8ae66bc83fabd8325e8578f20f496a5db11c04cd0bcc34d412d04bf7d594b61fe84b773c726af6c7b1828e8e4dd0edc932db94e971bfcf640b8ad7676e27110'
-            'b557cfa8fccd7f3e2d7750699e43c52d10a1d84367dbc694312dfd84b63a00aeedd8e93d0a72b8fb14ee7c2655d350a1991983df8f87e28d119eba5f6d7a5030'
-            'fdbcaa3fae087c2dae50e77001370d1bb55e5b693031ffebc5f1539f899d814c1ce25d27bdc6014121b46dbd4aadfea1526311a7cbcdf2bde2272a1983215fdd')
+            '8bfedb8fbc46a1f9d4408236a50d53cb71750a0680f351e26c4c238c15803ee7c180fad462e885129c60d3335f98a947b170a32704265044312b1ec5daa0003a'
+            '550a3843ef83893fb6fa5f4e61b0936091b2b2cf7db03ebc02125b1a5951e39b6e33760c507fedb32fdd3505573dfaf8a6d32051a81f4e2f4cb3d0eae87d7d53'
+            '50d14ac366550480749ef05db54150e4aa5f3398603868f777e92a29672927e9c540c4d8ade8ff60b238259800fa921e28b97dafd37c6e7f9e98cafddcd13323'
+            'a3a4d38f4fc7dca5966230cc15f203ddae3bc24b7b39dbbc910ceaa0c0dbd2eff70845e08ba46785fedfe2e41f310a0264c7dd5193c09584288b3b9dbdf17f7b')
 
 package() {
     cd "${srcdir}"

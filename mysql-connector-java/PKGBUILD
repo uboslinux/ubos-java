@@ -2,7 +2,7 @@ maintainer="http://indiecomputing.com/"
 pkgname=$(basename $(pwd))
 _name='mysql-connector-java'
 _groupId='mysql'
-pkgver=8.0.13
+pkgver=8.0.19
 pkgrel=1
 pkgdesc='MySQL JDBC Type 4 driver'
 arch=('any')
@@ -15,8 +15,8 @@ depends=(
 source=("https://repo1.maven.org/maven2/mysql/${_name}/${pkgver}/${_name}-${pkgver}.pom"
         "https://repo1.maven.org/maven2/mysql/${_name}/${pkgver}/${_name}-${pkgver}.jar")
 releasepage=('http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22mysql%22%20AND%20a%3A%22mysql-connector-java%22')
-sha512sums=('a688114ea1897ff68388e7a1045083f559a464ae2438c7ec10358606e551517c129bb2628c9b05afff0e64f97081156b0c5c24e82a3047abe2d8f762782c53cb'
-            'ad3a461d404cab1a702f32dcd051326ab573b93b23d052d143724f242f28820b98ca75fd36e500c824ab5e13dc281994f8191443fb8976faa57553689e71b2ab')
+sha512sums=('328072a047602d4ea4b107e5cea617c763fd39689fb3dd94d2fe24e948a51a3b759500522f3f286445af1309b77bd6972a315918718ff511cb27feef781a61a3'
+            '3fbd7eaa32f841fc0afacbc38e7c72cf521887093cb5e33a18fb4860ba97a5038e835ccf43f393c53014cde07993fbd6a00d8082cf9b2aab3334683a12e959f0')
 
 package() {
     install -m644 -D ${srcdir}/${_name}-${pkgver}.jar \
