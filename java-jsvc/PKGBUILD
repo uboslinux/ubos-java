@@ -31,7 +31,7 @@ build() {
 
   # jsvc
   cd "${srcdir}/${_libname}-${pkgver}-src/src/native/unix"
-  JAVA_HOME=/usr/lib/jvm/default ./configure
+  JAVA_HOME=/usr/lib/jvm/java-8-openjdk ./configure
   make
   docbook2man man/jsvc.1.xml
 }
