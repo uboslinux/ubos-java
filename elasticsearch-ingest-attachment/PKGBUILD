@@ -1,7 +1,7 @@
 maintainer="http://indiecomputing.com/"
 pkgname=$(basename $(pwd))
-_elver=7.5.2
-_elrel=1
+_elver=7.7.0
+_elrel=2
 pkgver=${_elver}
 pkgrel=1
 pkgdesc='Elasticsearch ingest attachment processor plugin'
@@ -14,7 +14,7 @@ depends=(
 source=("https://artifacts.elastic.co/downloads/elasticsearch-plugins/ingest-attachment/ingest-attachment-${_elver}.zip")
 
 releasepage=('https://www.elastic.co/guide/en/elasticsearch/plugins/current/ingest-attachment.html')
-sha512sums=('abb502447d5d4a5b9eaff645ba92f37305d0b30204e7eea408b447d5fffcaab7abbe3930c168199ed929ce95161d47c1951bec1191054e623f8511d34a951da5')
+sha512sums=('8c4c33abd4415a6773e51c623e71880f9e9975d72920dbc40f32dde1cc08773f2d76741eaf6ea22f07c3ac4b3633dcedc3d1b96356891345c6ca6dc8b011c835')
 
 package() {
     mkdir -p ${pkgdir}/usr/share/elasticsearch/plugins
