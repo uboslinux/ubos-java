@@ -1,7 +1,7 @@
 maintainer="http://indiecomputing.com/"
 pkgname=$(basename $(pwd))
-_elver=7.7.0
-_elrel=2
+_elver=7.9.1
+_elrel=1
 pkgver=${_elver}
 pkgrel=1
 pkgdesc='Elasticsearch ingest attachment processor plugin'
