@@ -3,7 +3,7 @@
 # Refactored by Blaž "Speed" Hrastnik <https://github.com/archSeer>
 #
 # From Arch for UBOS as Archlinux ARM does not have it any more:
-# added -Dorg.gradle.daemon=false
+# also, do not run as daemon and don't specify max memory (armv7h does not like that)
 
 pkgname=elasticsearch
 pkgver=7.9.1
@@ -25,6 +25,7 @@ source=(
   elasticsearch-tmpfile.conf
   elasticsearch.default
   remove-systemd-distribution-check.patch
+  no-max-build-memory.patch
 )
 sha256sums=('60d8e3c8cc26a4add1e84fd1406916d7bfe07e20c842bb9c914f02275a6cdfdd'
             '9e1f68ff275ef2b5f2b93d2823efc5cc9643da696fcbe09a3ea7520ada35ffba'
@@ -35,7 +36,8 @@ sha256sums=('60d8e3c8cc26a4add1e84fd1406916d7bfe07e20c842bb9c914f02275a6cdfdd'
             '815f6a39db6f54bb40750c382ffbdc298d2c4c187ee8ea7e2f855923e2ff354b'
             '74a772e9f73e2cecda45dcd30ade2f6114db657ed36231292bdf9a7ca04eab78'
             'bb74e5fb8bc28f2125e015395ab05bea117b72bfc6dadbca827694b362ee0bf8'
-            '96934e6518245a4110714c3e1c1eb7bfaf4dd0026cc917efc322f3bfa4c3b5ec')
+            '96934e6518245a4110714c3e1c1eb7bfaf4dd0026cc917efc322f3bfa4c3b5ec'
+            '7d6f64979ea13391c6754e140243baa86effc10a752126322843438a066955b6')
 
 backup=('etc/elasticsearch/elasticsearch.yml'
         'etc/elasticsearch/log4j2.properties'
@@ -45,6 +47,7 @@ backup=('etc/elasticsearch/elasticsearch.yml'
 prepare() {
   cd $pkgname-$pkgver
   patch -Np1 -i "$srcdir"/remove-systemd-distribution-check.patch
+  patch < "$srcdir"/no-max-build-memory.patch
 }
 
 build() {

@@ -1,0 +1,11 @@
+--- gradle.properties	2020-09-01 17:56:59.000000000 +0000
++++ gradle.properties.new	2020-09-22 18:26:24.553938919 +0000
+@@ -1,6 +1,6 @@
+ org.gradle.warning.mode=none
+ org.gradle.parallel=true
+-org.gradle.jvmargs=-Xmx3g -XX:+HeapDumpOnOutOfMemoryError -Xss2m
++# org.gradle.jvmargs=-Xmx3g -XX:+HeapDumpOnOutOfMemoryError -Xss2m
+ options.forkOptions.memoryMaximumSize=2g
+ 
+ # Disable duplicate project id detection
+
