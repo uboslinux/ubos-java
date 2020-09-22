@@ -1,7 +1,9 @@
 # Maintainer: Massimiliano Torromeo <massimiliano.torromeo@gmail.com>
 # Contributor: Marcello "mererghost" Rocha <https://github.com/mereghost>
 # Refactored by Blaž "Speed" Hrastnik <https://github.com/archSeer>
-# From Arch for UBOS as Archlinux ARM does not have it any more -- no changes
+#
+# From Arch for UBOS as Archlinux ARM does not have it any more:
+# added -Dorg.gradle.daemon=false
 
 pkgname=elasticsearch
 pkgver=7.9.1
@@ -48,7 +50,7 @@ prepare() {
 build() {
   cd $pkgname-$pkgver
   export PATH=/usr/lib/jvm/java-11-openjdk/bin:$PATH
-  export GRADLE_OPTS="-Dbuild.snapshot=false -Dlicense.key=x-pack/plugin/core/snapshot.key"
+  export GRADLE_OPTS="-Dbuild.snapshot=false -Dlicense.key=x-pack/plugin/core/snapshot.key -Dorg.gradle.daemon=false"
   gradle :distribution:buildSystemdModule
   gradle :distribution:archives:linux-tar:build
 }
