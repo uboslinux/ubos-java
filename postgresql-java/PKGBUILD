@@ -3,13 +3,14 @@ pkgname=$(basename $(pwd))
 _name='postgresql'
 _groupId='org.postgresql'
 pkgver=42.2.15
-pkgrel=1
+pkgrel=2
 pkgdesc='Postgresql JDBC driver'
 arch=('any')
 url="https://jdbc.postgresql.org/"
 license=('GPL2')
 depends=(
     'java-environment'
+    'checkerframework-java'
 )
 source=("https://repo1.maven.org/maven2/${_groupId//.//}/${_name}/${pkgver}/${_name}-${pkgver}.pom"
         "https://repo1.maven.org/maven2/${_groupId//.//}/${_name}/${pkgver}/${_name}-${pkgver}.jar")
