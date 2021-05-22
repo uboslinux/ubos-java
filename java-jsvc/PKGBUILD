@@ -1,9 +1,10 @@
+# Maintainer: Maxime Gauduin <alucryd@archlinux.org>
 # Maintainer: Guillaume ALAUX <guillaume@archlinux.org>
 # ALARM: Kevin Mihelich
 # Brought up to date and simplified into one package by Indie Computing
 pkgname=('java-jsvc')
-pkgver=1.2.2
-pkgrel=6
+pkgver=1.2.4
+pkgrel=1
 arch=('x86_64')
 url='https://commons.apache.org/proper/commons-daemon/'
 pkgdesc='Apache application for making Java applications run on UNIX more easily'
@@ -11,43 +12,41 @@ license=('APACHE')
 _libname=commons-daemon
 source=(https://archive.apache.org/dist/commons/daemon/source/${_libname}-${pkgver}-src.tar.gz{,.asc})
 validpgpkeys=('A9C5DF4D22E99998D9875A5110C01C5A2F6059E7')
-sha256sums=('ebd9d50989ee2009cc83f501e6793ad5978672ecea97be5198135a081a8aac71'
+sha256sums=('5c2e31a7c1198ade5034d625ea10353cdcc4b6e99b84ed7fca4040e3df3339db'
             'SKIP')
 depends=('java-runtime' 'libcap')
-makedepends=('ant' 'docbook2x' 'docbook-xsl' 'java-environment=8')
+makedepends=(
+    'docbook2x'
+    'docbook-xsl'
+    'java-environment'
+    'maven')
 replaces=('java-commons-daemon')
 
 releasepage=('https://git.archlinux.org/svntogit/packages.git/tree/trunk?h=packages/java-commons-daemon')
-pkgverforked=('1.0.15-4')
-
-# patch not needed any more
+pkgverforked=('1.2.4-1')
 
 build() {
-  CPPFLAGS+=" -I/usr/lib/jvm/java-8-openjdk/include/linux"
-
   # commons-daemon.jar
   cd "${srcdir}/${_libname}-${pkgver}-src"
-  mvn -Drat.skip=true package
+  mvn clean package
 
   # jsvc
   cd "${srcdir}/${_libname}-${pkgver}-src/src/native/unix"
-  JAVA_HOME=/usr/lib/jvm/java-8-openjdk ./configure
+  ./configure --with-java=/usr/lib/jvm/default
   make
-  docbook2man man/jsvc.1.xml
+  # docbook2man man/jsvc.1.xml
+  db2x_docbook2man man/jsvc.1.xml
 }
 
 package() {
   cd "${srcdir}/${_libname}-${pkgver}-src"
 
-  install -Dm644 target/${_libname}-${pkgver}.jar \
-                 ${pkgdir}/usr/share/java/${_libname}-${pkgver}.jar
-  ln -s ${_libname}-${pkgver}.jar \
-        ${pkgdir}/usr/share/java/${_libname}.jar
+  install -Dm644 target/${_libname}-${pkgver}.jar -t ${pkgdir}/usr/share/java/
+  ln -s ${_libname}-${pkgver}.jar ${pkgdir}/usr/share/java/${_libname}.jar
 
   cd "${srcdir}/${_libname}-${pkgver}-src/src/native/unix"
 
-  install -Dm755 jsvc ${pkgdir}/usr/bin/jsvc
-  install -Dm644 JSVC.1 ${pkgdir}/usr/share/man/man1/JSVC.1
+  install -Dm 755 jsvc -t ${pkgdir}/usr/bin/
+  install -Dm 644 JSVC.1 -t ${pkgdir}/usr/share/man/man1/
 }
-
 
