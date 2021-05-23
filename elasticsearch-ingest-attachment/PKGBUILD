@@ -1,6 +1,6 @@
 maintainer="http://indiecomputing.com/"
 pkgname=$(basename $(pwd))
-_elver=7.12.1
+_elver=7.10.1
 _elrel=1
 pkgver=${_elver}
 pkgrel=1
@@ -14,7 +14,7 @@ depends=(
 source=("https://artifacts.elastic.co/downloads/elasticsearch-plugins/ingest-attachment/ingest-attachment-${_elver}.zip")
 
 releasepage=('https://www.elastic.co/guide/en/elasticsearch/plugins/current/ingest-attachment.html')
-sha512sums=('0a9ded95aa0b25d7811adcec4921b4885c882fb94c0cc9d875f683a0949b6f8aad0d6b737f8594ad006f0ad68c7c078f38b97a66d32d6579cdd9dbd5dd09280d')
+sha512sums=('9bd8174c9c33cc9a3247c75d5d51af8c6bd6e03ad657ae9705f525eaa954577cfc74f154a66cebdf328f96d670a9a4504f72b626067ee2aeb1fee0120a310a66')
 
 package() {
     mkdir -p ${pkgdir}/usr/share/elasticsearch/plugins
