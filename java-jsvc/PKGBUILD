@@ -14,13 +14,17 @@ source=(https://archive.apache.org/dist/commons/daemon/source/${_libname}-${pkgv
 validpgpkeys=('A9C5DF4D22E99998D9875A5110C01C5A2F6059E7')
 sha256sums=('5c2e31a7c1198ade5034d625ea10353cdcc4b6e99b84ed7fca4040e3df3339db'
             'SKIP')
+replaces=('java-commons-daemon')
 depends=('java-runtime' 'libcap')
 makedepends=(
     'docbook2x'
     'docbook-xsl'
-    'java-environment'
     'maven')
-replaces=('java-commons-daemon')
+if [[ "${JDK}" ]]; then
+makedepends+=( "java-environment=${JDK}" )
+else
+makedepends+=( "java-environment" )
+fi
 
 releasepage=('https://git.archlinux.org/svntogit/packages.git/tree/trunk?h=packages/java-commons-daemon')
 pkgverforked=('1.2.4-1')
@@ -32,7 +36,7 @@ build() {
 
   # jsvc
   cd "${srcdir}/${_libname}-${pkgver}-src/src/native/unix"
-  ./configure --with-java=/usr/lib/jvm/default
+  ./configure --with-java=${JAVA_HOME}
   make
   # docbook2man man/jsvc.1.xml
   db2x_docbook2man man/jsvc.1.xml
