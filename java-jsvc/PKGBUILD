@@ -14,17 +14,13 @@ source=(https://archive.apache.org/dist/commons/daemon/source/${_libname}-${pkgv
 validpgpkeys=('A9C5DF4D22E99998D9875A5110C01C5A2F6059E7')
 sha256sums=('5c2e31a7c1198ade5034d625ea10353cdcc4b6e99b84ed7fca4040e3df3339db'
             'SKIP')
-replaces=('java-commons-daemon')
 depends=('java-runtime' 'libcap')
 makedepends=(
     'docbook2x'
     'docbook-xsl'
+    "${JDK:-java-environment}"
     'maven')
-if [[ "${JDK}" ]]; then
-makedepends+=( "java-environment=${JDK}" )
-else
-makedepends+=( "java-environment" )
-fi
+replaces=('java-commons-daemon')
 
 releasepage=('https://git.archlinux.org/svntogit/packages.git/tree/trunk?h=packages/java-commons-daemon')
 pkgverforked=('1.2.4-1')
