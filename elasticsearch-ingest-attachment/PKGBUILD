@@ -1,6 +1,6 @@
 maintainer="http://indiecomputing.com/"
 pkgname=$(basename $(pwd))
-_elver=7.10.1
+_elver=7.17.9
 _elrel=1
 pkgver=${_elver}
 pkgrel=1
