@@ -4,6 +4,7 @@
 
 _pkgname=elasticsearch
 # pkgname=elasticsearch7
+CARCH=x86_64 # The portions of the code we want (not jdk/) are the same for all archs
 pkgname=elasticsearch
 pkgver=7.17.9
 pkgrel=1
