@@ -14,7 +14,7 @@ depends=(
 source=("https://artifacts.elastic.co/downloads/elasticsearch-plugins/ingest-attachment/ingest-attachment-${_elver}.zip")
 
 releasepage=('https://www.elastic.co/guide/en/elasticsearch/plugins/current/ingest-attachment.html')
-sha512sums=('9bd8174c9c33cc9a3247c75d5d51af8c6bd6e03ad657ae9705f525eaa954577cfc74f154a66cebdf328f96d670a9a4504f72b626067ee2aeb1fee0120a310a66')
+sha512sums=('9f72995acc8e1423c0adc1ef399437f215dc8db00efcd302ce76f78ff90f6ca497dd3f3bfb3bc9be2a32aa309922fb59cb1be6d2df3b417c96ce45694add9047')
 
 package() {
     mkdir -p ${pkgdir}/usr/share/elasticsearch/plugins
