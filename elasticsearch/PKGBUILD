@@ -1,10 +1,11 @@
 # Maintainer:  HLFH <gaspard@dhautefeuille.eu>
 # From AUR, called elasticsearch7
 # Nextcloud search is only compatible with v7 so far, not 8
+# We use the x86_64 version for all archs; the portions of the code we want are the same for all archs
 
+options=(!strip)
 _pkgname=elasticsearch
 # pkgname=elasticsearch7
-CARCH=x86_64 # The portions of the code we want (not jdk/) are the same for all archs
 pkgname=elasticsearch
 pkgver=7.17.9
 pkgrel=1
