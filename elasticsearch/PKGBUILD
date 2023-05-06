@@ -8,12 +8,12 @@ _pkgname=elasticsearch
 # pkgname=elasticsearch7
 pkgname=elasticsearch
 pkgver=7.17.9
-pkgrel=1
+pkgrel=2
 pkgdesc="Free and Open, Distributed, RESTful Search Engine"
 arch=('x86_64')
 url="https://www.elastic.co/elasticsearch/"
 license=('custom:Elastic-2.0')
-depends=('jre19-openjdk-headless' 'libxml2')
+depends=('java-runtime-headless' 'libxml2')
 provides=("elasticsearch=$pkgver")
 conflicts=('elasticsearch')
 source=(
@@ -47,7 +47,7 @@ package() {
 
   install -dm755 "$pkgdir"/{usr/share,var/lib,var/log}/elasticsearch
   install -dm755 "$pkgdir"/usr/bin
-  
+
   cp -R "${srcdir}/elasticsearch-${pkgver}/." "${pkgdir}/usr/share/elasticsearch"
   rm -r "$pkgdir"/usr/share/elasticsearch/{jdk,logs}
 
