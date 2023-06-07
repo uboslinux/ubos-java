@@ -19,7 +19,7 @@ conflicts=('elasticsearch')
 case "$(uname -m)" in
   'x86_64')
     source=( $pkgname-$pkgver.tar.gz::"https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-${pkgver}-linux-x86_64.tar.gz")
-    b2sums=('FIXME')
+    b2sums=('0b8ded344c98cf7885f189b74ce24b7bdeb973536b71c065407abb29a5e453d920dd405272f7959ca515540e784d7124071d76e2f701d36d2b87069733d0d841')
     ;;
   'aarch64')
     source=( $pkgname-$pkgver.tar.gz::"https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-${pkgver}-linux-aarch64.tar.gz")
