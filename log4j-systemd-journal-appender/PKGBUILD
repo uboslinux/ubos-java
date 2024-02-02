@@ -2,7 +2,7 @@ maintainer="http://indiecomputing.com/"
 pkgname=$(basename $(pwd))
 _groupId='de.bwaldvogel'
 _name=${pkgname}
-pkgver=2.4.0
+pkgver=2.5.1
 pkgrel=1
 pkgdesc='Log4j appender for systemd-journal that maintains structured log data'
 arch=('any')
@@ -15,8 +15,8 @@ source=("https://repo1.maven.org/maven2/${_groupId//.//}/${_name}/${pkgver}/${_n
         "https://repo1.maven.org/maven2/${_groupId//.//}/${_name}/${pkgver}/${_name}-${pkgver}.jar"
         "https://raw.githubusercontent.com/bwaldvogel/log4j-systemd-journal-appender/master/LICENSE.txt")
 releasepage=('http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22de.bwaldvogel%22%20AND%20a%3A%22log4j-systemd-journal-appender%22')
-sha512sums=('d05fe956e439f9749e6f35e413aa82e52a5b4355a0df06fb2afe438da3d6443e56845527279e16ccf0b31203679f2d9932d3e0ba39d10eea3d8829846a4db0fa'
-            'cba55cd090c159f4fe13a98e3a9b85fb725afaf3f5e9a14ea1c6161d2006173bbe7e6ed3351b5b536c046163c107c8a342ee9b091c1783f0a5468ac0a0acbd72'
+sha512sums=('9bd1f811f2a7eafc15c6eec557841150551bbce7e0ff4bb2ffed13b3cfba8e3fc187f3fe1df9a760fbd49fe1a9e1e27ad54bd295f6e80232425b508e826dc482'
+            '3165d0ec608e2ffb6ef6bdcffdd1677078a65e23c705d5f9164efd0322951b64cf82218b18f32391e87857863e1345754da067419879c6cd4d1bbb0d3145ec9f'
             '79090ee0796346c1ba219871d42f69626bfcc5d49803c600293cee8de12999806795be75a73d8f19792285709291acdc00f6cc40b11b945299b0f0ae4b6edc59')
 
 package() {

@@ -2,7 +2,7 @@ maintainer="http://indiecomputing.com/"
 pkgname=$(basename $(pwd))
 _name='checker-qual'
 _groupId='org.checkerframework'
-pkgver=3.13.0
+pkgver=3.42.0
 pkgrel=1
 pkgdesc='Checker Framework to type check Java source code'
 arch=('any')
@@ -15,8 +15,8 @@ source=("https://repo1.maven.org/maven2/${_groupId//.//}/${_name}/${pkgver}/${_n
         "https://repo1.maven.org/maven2/${_groupId//.//}/${_name}/${pkgver}/${_name}-${pkgver}.jar")
 
 releasepage=('https://search.maven.org/artifact/org.checkerframework/checker-qual')
-sha512sums=('d4176283e6f6ba06ecc7b1ec14d24f65c52f19f1924fbf8d03b0ef04a90d3e9d0cfb0b8c0b174752064319443bd3ffbb501149c11a415ae0ea62ac7bd31cec89'
-            '9e396a654bb82d96f6390673f5fbc0645f5375efe09150ff54af8d2422ff4f2fd30c0246ff09a4c56a3256c155abcf260badb4fbc5515c930e075e673cea53eb')
+sha512sums=('2b84e9bfcf6aad99e5da25ddefe7c2dcbc51c498533c94b53a9af252465c6ea7a234cf54cdcaafccc30bc21b8f9de648f89b9e4a0af426414085f547fca432f3'
+            '85f66a42a079b4578256b5b6daa4b1ba5aa684614982cab2c9cd83324f2c3fcdde420de6ad51b2f439c4c809be10b376f80f5a45110a1ee6caa59e6298c0ec95')
 
 package() {
     install -m644 -D ${srcdir}/${_name}-${pkgver}.jar \

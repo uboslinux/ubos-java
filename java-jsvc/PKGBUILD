@@ -3,7 +3,7 @@
 # ALARM: Kevin Mihelich
 # Brought up to date and simplified into one package by Indie Computing
 pkgname=('java-jsvc')
-pkgver=1.2.4
+pkgver=1.3.4
 pkgrel=1
 arch=('x86_64')
 url='https://commons.apache.org/proper/commons-daemon/'
@@ -12,18 +12,18 @@ license=('APACHE')
 _libname=commons-daemon
 source=(https://archive.apache.org/dist/commons/daemon/source/${_libname}-${pkgver}-src.tar.gz{,.asc})
 validpgpkeys=('A9C5DF4D22E99998D9875A5110C01C5A2F6059E7')
-sha256sums=('5c2e31a7c1198ade5034d625ea10353cdcc4b6e99b84ed7fca4040e3df3339db'
+sha256sums=('df4849d05e5816610e67821883f4fc1e11724a0bb8b78b84b21edd5039ecebbe'
             'SKIP')
 depends=('java-runtime' 'libcap')
 makedepends=(
     'docbook2x'
+    'docbook-utils'
     'docbook-xsl'
     "${JDK:-java-environment}"
     'maven')
-replaces=('java-commons-daemon')
 
-releasepage=('https://git.archlinux.org/svntogit/packages.git/tree/trunk?h=packages/java-commons-daemon')
-pkgverforked=('1.2.4-1')
+releasepage=('https://gitlab.archlinux.org/archlinux/packaging/packages/java-commons-daemon')
+pkgverforked=('1.3.4-1')
 
 build() {
   # commons-daemon.jar
@@ -32,7 +32,7 @@ build() {
 
   # jsvc
   cd "${srcdir}/${_libname}-${pkgver}-src/src/native/unix"
-  ./configure --with-java=${JAVA_HOME}
+  ./configure --with-java=${JAVA_HOME:-/usr/lib/jvm/default}
   make
   # docbook2man man/jsvc.1.xml
   db2x_docbook2man man/jsvc.1.xml
