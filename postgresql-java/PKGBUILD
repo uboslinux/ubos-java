@@ -2,7 +2,7 @@ maintainer="http://indiecomputing.com/"
 pkgname=$(basename $(pwd))
 _name='postgresql'
 _groupId='org.postgresql'
-pkgver=42.2.20
+pkgver=42.7.1
 pkgrel=1
 pkgdesc='Postgresql JDBC driver'
 arch=('any')
@@ -16,8 +16,8 @@ source=("https://repo1.maven.org/maven2/${_groupId//.//}/${_name}/${pkgver}/${_n
         "https://repo1.maven.org/maven2/${_groupId//.//}/${_name}/${pkgver}/${_name}-${pkgver}.jar")
 
 releasepage=('https://search.maven.org/artifact/org.postgresql/postgresql')
-sha512sums=('cb1cb0130ffb1dd524c7ddfc981c9defe0523915216d2dd67bd743315f238543f66ca2a3026543f40370e4049f7fe031e4980f384ed4dd5dcaa34e8a0f5f4a4d'
-            'f7f48f6c69954fb1e7756cc1dbb984af17c00753741f83506673b5a9ad4e1d980f933a359529fef1ca63ca1f46f11a0bef9ef6c0d8b69d503a259dc31adfad91')
+sha512sums=('3987e5a36ac426046c253cefaa22fa4870ad0cf66591fd13f1c4a9c2068933a6b8ef2eb32fb0642b313287ed3e194c456a66e0e3866d5fefa808530cbf3d3750'
+            '614942dc0a994a8913e4bc657de3e91e963a14849f4055470672e31a5bd3cefd01c4520dec2d1aa6702eb43c3f553cb6df77e3c36f95f001635e1e0ed0bc8822')
 
 prepare() {
     # This is a bit messy:
