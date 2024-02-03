@@ -19,7 +19,7 @@ makedepends=(
     'docbook2x'
     'docbook-utils'
     'docbook-xsl'
-    "${JDK:-java-environment}"
+    'java-environment'
     'maven')
 
 releasepage=('https://gitlab.archlinux.org/archlinux/packaging/packages/java-commons-daemon')
@@ -28,7 +28,7 @@ pkgverforked=('1.3.4-1')
 build() {
   # commons-daemon.jar
   cd "${srcdir}/${_libname}-${pkgver}-src"
-  mvn clean package
+  mvn $MVN_OPTS clean package
 
   # jsvc
   cd "${srcdir}/${_libname}-${pkgver}-src/src/native/unix"
